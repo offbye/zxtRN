@@ -1,0 +1,3 @@
+rootProject.name = 'zxtRn'
+
+include ':app'
