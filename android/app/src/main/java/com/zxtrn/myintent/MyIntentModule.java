@@ -6,9 +6,11 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.JSApplicationIllegalArgumentException;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.zxtrn.MyConstants;
 
 /**
  * Created by zhangxitao on 16/6/1.
@@ -49,6 +51,40 @@ class MyIntentModule extends ReactContextBaseJavaModule {
         intent.putExtra("result",result);
         currentActivity.setResult(11,intent);
         currentActivity.finish();
+    }
+
+    @ReactMethod
+    public void startActivityByString(String activityName){
+        try {
+            Activity currentActivity = getCurrentActivity();
+            if (null != currentActivity) {
+
+                Class aimActivity = Class.forName(activityName);
+                Intent intent = new Intent(currentActivity,aimActivity);
+                currentActivity.startActivity(intent);
+            }
+        } catch (Exception e) {
+            throw new JSApplicationIllegalArgumentException(
+                    "Could not open the activity : " + e.getMessage());
+        }
+    }
+
+    @ReactMethod
+    public void startActivityForResult(String activityName,int requestCode,Callback successCallback,Callback erroCallback){
+        try {
+            Activity currentActivity = getCurrentActivity();
+            if ( null!= currentActivity) {
+                Class aimActivity = Class.forName(activityName);
+                Intent intent = new Intent(currentActivity,aimActivity);
+                currentActivity.startActivityForResult(intent,requestCode);
+                String result = MyConstants.myBlockingQueue.take();
+                successCallback.invoke(result);
+            }
+        } catch (Exception e) {
+            erroCallback.invoke(e.getMessage());
+            throw new JSApplicationIllegalArgumentException(
+                    "Could not open the activity : " + e.getMessage());
+        }
     }
 
     @Override

@@ -79,7 +79,7 @@ class zxtRn extends Component {
           Shake or press menu button for dev menu
         </Text>
         <Image source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}
-        style={{width: 400, height: 400}} />
+        style={{width: 200, height: 200}} />
         <Text style={styles.codepush}>
           code push test
         </Text>
@@ -91,9 +91,15 @@ class zxtRn extends Component {
         <Text style={styles.button} onPress={() => this.sendSMS()} >
           Send SMS
         </Text>
-				<Text style={styles.button} onPress={() => { NativeModules.MyIntentModule.finishActivity(this.state.TEXT); } } >
-          Send finish
+				<Text style={styles.button} onPress={() => { NativeModules.MyIntentModule.startActivityByString("com.zxtrn.SecondActivity"); } } >
+          start second
         </Text>
+				<Text style={styles.button} onPress={() => this.startActivityForResult() } >
+					start second for result
+				</Text>
+				<Text style={styles.button} onPress={() => { NativeModules.MyIntentModule.finishActivity(this.state.TEXT); } } >
+					Send finish
+				</Text>
       </View>
     );
   }
@@ -106,6 +112,16 @@ class zxtRn extends Component {
       type: SendIntentAndroid.TEXT_PLAIN
     });
   }
+
+	startActivityForResult(){
+		NativeModules.MyIntentModule.startActivityForResult(
+					"com.zxtrn.SecondActivity",100,
+					(successMsg) => {
+								this.setState({TEXT: successMsg, });
+					},
+					(erroMsg) => {alert(erroMsg)}
+					);
+	}
 
 }
 
@@ -133,10 +149,10 @@ const styles = StyleSheet.create({
   },
   button: {
     textAlign: 'center',
-    color: '#00ffff',
-    margin: 20,
-    padding:20
-  },
+		color: 'teal',
+		fontSize: 24,
+		padding: 10,
+   },
 });
 
 AppRegistry.registerComponent('zxtRn', () => zxtRn);

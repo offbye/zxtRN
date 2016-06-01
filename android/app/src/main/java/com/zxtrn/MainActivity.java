@@ -1,5 +1,8 @@
 package com.zxtrn;
 
+import android.content.Intent;
+import android.text.TextUtils;
+
 import com.facebook.react.ReactActivity;
 import com.burnweb.rnsendintent.RNSendIntentPackage;
 import com.microsoft.codepush.react.CodePush;
@@ -9,6 +12,7 @@ import com.zxtrn.myintent.MyReactPackage;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.ArrayBlockingQueue;
 
 public class MainActivity extends ReactActivity {
 
@@ -53,4 +57,23 @@ public class MainActivity extends ReactActivity {
             //new CodePush(this.getResources().getString(R.strings.reactNativeCodePush_androidDeploymentKey), this, BuildConfig.DEBUG)
         );
     }
+
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_OK && requestCode == 100){
+            String result = data.getStringExtra("result");
+            if (!TextUtils.isEmpty(result)){
+                MyConstants.myBlockingQueue.add(result);
+            } else {
+                MyConstants.myBlockingQueue.add("无数据传回");
+            }
+        } else {
+            MyConstants.myBlockingQueue.add("没有");
+        }
+    }
+
 }
+
