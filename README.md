@@ -1,10 +1,13 @@
 # React Native和Android，iOS原生项目集成实验项目
 
 ## 项目介绍
+
 通过rnpm集成了CodePush， react-native-send-intent模块。
 react-native-send-intent模块实现从React页面发起Intent发短信，打电话，添加日历事件等常见任务。进行简单扩展后可以支持启动任意原生Activity。
 自己实现MyIntentModule模块通过Intent从MyAndroid传输数据到React界面。
-![emulator rn](http://o79096vir.bkt.clouddn.com/d2dcdf812d7af45783e302fcc25cbf40.png)
+http://git.dev.qianmi.com/elifeapp/zxtrn
+
+![emulator rn运行效果](http://o79096vir.bkt.clouddn.com/d2dcdf812d7af45783e302fcc25cbf40.png)
 
 ## React Native Package Manager介绍
 React Native Package Manager是为了简化React Native开发而生的包管理器。这个项目的想法来自CocoaPods, fastlane和react-native link。它的目标是让几乎全部可用的模块不需要额外配置就可以使用。
@@ -79,8 +82,7 @@ public class MyReactActivity  extends ReactActivity
 
 在JS端配置相应代码
 
-```
-.......
+```js
 class myreactactivity extends React.Component {
 constructor(props) {
     super(props);   //这一句不能省略，照抄即可
@@ -107,12 +109,11 @@ constructor(props) {
         );
       }
 }
-.......
 ```
 
 最后在原生界面将数据存放在intent里，然后用startActivity启动；
 
-```
+```java
 Intent intent =new Intent(this,MyReactActivity.class);
  intent.putExtra("result","haha");
  startActivity(intent,10);
@@ -203,7 +204,7 @@ public static ArrayBlockingQueue<String> myBlockingQueue = new ArrayBlockingQueu
 
 在MyIntentModule里添加方法
 
-```
+```java
 @ReactMethod
     public void startActivityForResult(String activityName,int requestCode,Callback successCallback,Callback erroCallback){
         try {
@@ -225,7 +226,7 @@ public static ArrayBlockingQueue<String> myBlockingQueue = new ArrayBlockingQueu
 
 在JS端调用
 
-```
+```js
 React.NativeModules.MyIntentModule.startActivityForResult(
       "com.zxtrn.SecondActivity",100,
       (successMsg) => {
