@@ -17,7 +17,15 @@
         android:layout_height="wrap_content"
         android:text="Enter React Native"
         android:id="@+id/buttonEnter"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="172dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="hello react"
+        android:id="@+id/editTextResult"
+        android:layout_marginTop="100dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

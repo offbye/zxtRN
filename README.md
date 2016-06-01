@@ -33,3 +33,5 @@ rnpm-link info Linking react-native-send-intent android dependency
 rnpm-link info Android module react-native-send-intent has been successfully linked
 rnpm-install info Module react-native-send-intent has been successfully installed & linked
 ```
+
+## MyIntentModule数据传输模块

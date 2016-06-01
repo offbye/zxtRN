@@ -25,6 +25,7 @@ class zxtRn extends Component {
       super(props);
       this.state = {
    			TEXT: 'Input Text',//这里放你自己定义的state变量及初始值
+				tonative: 'test',
       };
 
   }
@@ -43,7 +44,7 @@ class zxtRn extends Component {
 					(erroMsg) => {alert(erroMsg)}
 		 );
 
-		 
+
 		setTimeout(function(){
 			console.log("setTimeout!");
 
@@ -63,8 +64,6 @@ class zxtRn extends Component {
   }
   componentUnDidMount() {
 		console.log("componentUnDidMount");
-
-		NativeModules.MyIntentModule.finishActivity(this.state.TEXT);
 	}
 
   render() {
@@ -86,13 +85,15 @@ class zxtRn extends Component {
         </Text>
         <TextInput
                 style={{height: 40, borderColor: 'gray', borderWidth: 1,margin:20,}}
-                onChangeText={(text) => this.setState({text})}
+                onChangeText={(text) => this.setState({TEXT:text})}
                 value={this.state.TEXT} />
 
         <Text style={styles.button} onPress={() => this.sendSMS()} >
           Send SMS
         </Text>
-
+				<Text style={styles.button} onPress={() => { NativeModules.MyIntentModule.finishActivity(this.state.TEXT); } } >
+          Send finish
+        </Text>
       </View>
     );
   }
@@ -101,7 +102,7 @@ class zxtRn extends Component {
 		ToastAndroid.show("sendSMS!",ToastAndroid.SHORT);
     SendIntentAndroid.sendText({
       title: 'Please share this text',
-      text: 'Lorem ipsum dolor sit amet, per error erant eu, antiopam intellegebat ne sed',
+      text:  this.state.TEXT,
       type: SendIntentAndroid.TEXT_PLAIN
     });
   }

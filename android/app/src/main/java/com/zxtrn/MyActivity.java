@@ -6,8 +6,10 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MyActivity extends AppCompatActivity {
 
@@ -33,10 +35,17 @@ public class MyActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(getApplicationContext(), MainActivity.class);
-                intent.putExtra("result","hello react");
+                intent.putExtra("result", ((EditText)findViewById(R.id.editTextResult)).getText().toString());
                 startActivity(intent);
             }
         });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d("MyActivity", "  " + requestCode  + "  " +  resultCode + data.getStringExtra("result"));
+
+        super.onActivityResult(requestCode, resultCode, data);
+        ((EditText)findViewById(R.id.editTextResult)).setText(data.getStringExtra("result"));
+    }
 }
