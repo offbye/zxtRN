@@ -4,7 +4,7 @@
 通过rnpm集成了CodePush， react-native-send-intent模块。
 react-native-send-intent模块实现从React页面发起Intent发短信，打电话，添加日历事件等常见任务。进行简单扩展后可以支持启动任意原生Activity。
 自己实现MyIntentModule模块通过Intent从MyAndroid传输数据到React界面。
-
+![emulator rn](http://o79096vir.bkt.clouddn.com/d2dcdf812d7af45783e302fcc25cbf40.png)
 
 ## React Native Package Manager介绍
 React Native Package Manager是为了简化React Native开发而生的包管理器。这个项目的想法来自CocoaPods, fastlane和react-native link。它的目标是让几乎全部可用的模块不需要额外配置就可以使用。
