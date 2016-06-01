@@ -22,6 +22,9 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		6A0AD7731CFEE05F006BB11B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0AD7721CFEE05F006BB11B /* libz.tbd */; };
+		6A0AD7761CFEEB7E006BB11B /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0AD7751CFEEB7E006BB11B /* Test.swift */; };
+		6A0AD7781CFEEBDA006BB11B /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0AD7771CFEEBDA006BB11B /* CalendarManager.swift */; };
+		6A0AD77C1CFEED36006BB11B /* CalendarManagerBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0AD77B1CFEED36006BB11B /* CalendarManagerBridge.m */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		CA58C0DA96BB46B2BB4EB402 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D220BF1A1FD4297B3CC492C /* libCodePush.a */; };
 /* End PBXBuildFile section */
@@ -136,6 +139,10 @@
 		1796E8CE55CE4797B413D774 /* CodePush.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
 		1D220BF1A1FD4297B3CC492C /* libCodePush.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libCodePush.a; sourceTree = "<group>"; };
 		6A0AD7721CFEE05F006BB11B /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		6A0AD7741CFEEB7D006BB11B /* zxtRn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "zxtRn-Bridging-Header.h"; sourceTree = "<group>"; };
+		6A0AD7751CFEEB7E006BB11B /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		6A0AD7771CFEEBDA006BB11B /* CalendarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
+		6A0AD77B1CFEED36006BB11B /* CalendarManagerBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarManagerBridge.m; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -253,6 +260,10 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				6A0AD7751CFEEB7E006BB11B /* Test.swift */,
+				6A0AD7741CFEEB7D006BB11B /* zxtRn-Bridging-Header.h */,
+				6A0AD7771CFEEBDA006BB11B /* CalendarManager.swift */,
+				6A0AD77B1CFEED36006BB11B /* CalendarManagerBridge.m */,
 			);
 			name = zxtRn;
 			sourceTree = "<group>";
@@ -374,6 +385,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 610;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
@@ -581,7 +593,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				6A0AD77C1CFEED36006BB11B /* CalendarManagerBridge.m in Sources */,
+				6A0AD7781CFEEBDA006BB11B /* CalendarManager.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				6A0AD7761CFEEB7E006BB11B /* Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,6 +664,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEAD_CODE_STRIPPING = NO;
 				HEADER_SEARCH_PATHS = (
@@ -665,6 +681,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qianmi.test;
 				PRODUCT_NAME = zxtRn;
+				SWIFT_OBJC_BRIDGING_HEADER = "zxtRn-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -672,6 +690,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -687,6 +706,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qianmi.test;
 				PRODUCT_NAME = zxtRn;
+				SWIFT_OBJC_BRIDGING_HEADER = "zxtRn-Bridging-Header.h";
 			};
 			name = Release;
 		};

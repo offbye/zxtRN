@@ -9,7 +9,8 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  NativeModules
 } from 'react-native';
 
 class zxtRn extends Component {
@@ -22,7 +23,7 @@ class zxtRn extends Component {
         <Text style={styles.instructions}>
           To get started, edit index.ios.js
         </Text>
-        <Text style={styles.instructions}>
+        <Text style={styles.instructions} onPress={() => { NativeModules.CalendarManager.addEvent('One', 'Two', 3); } } >
           Press Cmd+R to reload,{'\n'}
           Cmd+D or shake for dev menu
         </Text>
