@@ -1,4 +1,5 @@
 <resources>
-    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">UAvQtR1CTph9a9b4axtv3rupnJigVklbZAwzW</string>
+    <string name="reactNativeCodePush_androidDeploymentKey" moduleConfig="true">UAvQtR1CTph9a9b4axtv3rupnJigVklbZAwzW</string>
     <string name="app_name">zxtRn</string>
+    <string name="title_activity_my">MyActivity</string>
 </resources>

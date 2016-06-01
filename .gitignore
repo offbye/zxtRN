@@ -39,3 +39,5 @@ buck-out/
 android/app/libs
 android/keystores/debug.keystore
 release/
+
+**/*.iml
