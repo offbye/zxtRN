@@ -9,9 +9,12 @@ import {
   StyleSheet,
   Text,
   Image,
+  Button,
   View
 } from 'react-native';
 import codePush from "react-native-code-push";
+var SendIntentAndroid = require('react-native-send-intent');
+
 
 class zxtRn extends Component {
   constructor(props) {
@@ -49,9 +52,20 @@ class zxtRn extends Component {
         <Text style={styles.codepush}>
           code push test
         </Text>
+        <Text style={styles.button} onPress={() => this.sendSMS()} >
+          Send SMS
+        </Text>
 
       </View>
     );
+  }
+
+  sendSMS(){
+    SendIntentAndroid.sendText({
+      title: 'Please share this text',
+      text: 'Lorem ipsum dolor sit amet, per error erant eu, antiopam intellegebat ne sed',
+      type: SendIntentAndroid.TEXT_PLAIN
+    });
   }
 }
 
@@ -76,6 +90,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#00ff00',
     marginBottom: 5,
+  },
+  button: {
+    textAlign: 'center',
+    color: '#00ffff',
+    margin: 20,
+    padding:20
   },
 });
 
