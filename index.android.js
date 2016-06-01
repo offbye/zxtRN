@@ -152,6 +152,8 @@ const styles = StyleSheet.create({
 		color: 'teal',
 		fontSize: 24,
 		padding: 10,
+		borderWidth:1, //安卓Text好像还不支持边框，需要View嵌套，坑
+		borderColor:'red',
    },
 });
 

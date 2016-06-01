@@ -34,17 +34,18 @@ rnpm-link info Android module react-native-send-intent has been successfully lin
 rnpm-install info Module react-native-send-intent has been successfully installed & linked
 ```
 
-## MyIntentModule数据传输模块
+## Android原生Activity与RN互传数据-MyIntentModule实现
+
 ###原生界面调用React界面
 
 1.只是启动React界面的话很简单，同原生界面间的启动一样，直接用startActivity即可。
 
 2.在启动React界面时传递数据给React界面。
 
-先来捋下思路，原生界面启动是没问题的，同原生一样；关键是React界面如何获取到传递过来的值：从前面的学习中我们知道原生模块是有很大自由度的，只要能得到React界面所在activity就可以顺着得到传递的来的intent，而JS端想得到数据就要利用回调函数了。
+关键是React界面如何获取到传递过来的值：从前面的学习中我们知道原生模块是有很大自由度的，只要能得到React界面所在activity就可以顺着得到传递的来的intent，而JS端想得到数据就要利用回调函数了。
 
 接下来是实现思路，从后往前来：首先先要按之前构建原生模块的步骤一步步来构建我们这次需要的功能
-```
+```java
 public class MyIntentModule extends ReactContextBaseJavaModule
 @ReactMethod
 public void getDataFromIntent(Callback successBack,Callback erroBack){
@@ -248,6 +249,15 @@ React.NativeModules.MyIntentModule.startActivityForResult(
            }
        });
 ```
+
+## CodePush 热更新技术介绍
+集成了CodePush技术热更新App，可以先看下微软官方的文档[React Native Client SDK](http://microsoft.github.io/code-push/docs/react-native.html)。
+在项目运行`rnpm link react-native-code-push` 即可安装codepush
+
+CodePush提供了对React Native App的热更新能力，目前只能对js bundle进行热更新，如果原生代码修改了是不能热更新的，只能通过重新安装App的方式升级。
+CodePush的一个问题是是对React Native版本的兼容性，由于React Native版本更新很快，CodePush是由微软而不是Facebook维护的，所以对React Native0.18以前的版本支持有各种兼容问题，具体参考[文档](http://microsoft.github.io/code-push/docs/react-native.html#link-1)。
+CodePush的具体配置可以参考[这篇文章](http://bbs.reactnative.cn/topic/725/code-push-%E7%83%AD%E6%9B%B4%E6%96%B0%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E%E5%92%8C%E6%95%99%E7%A8%8B/2),配置需要注意的事项还是挺多的，我参考这篇文章配置成功了，
+
 
 
 参考文章
