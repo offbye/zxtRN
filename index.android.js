@@ -4,13 +4,17 @@
  */
 
 import React, { Component } from 'react';
+
 import {
   AppRegistry,
   StyleSheet,
   Text,
   Image,
-  Button,
-  View
+  TextInput,
+  View,
+	Platform,
+	ToastAndroid,
+	NativeModules
 } from 'react-native';
 import codePush from "react-native-code-push";
 var SendIntentAndroid = require('react-native-send-intent');
@@ -19,10 +23,32 @@ var SendIntentAndroid = require('react-native-send-intent');
 class zxtRn extends Component {
   constructor(props) {
       super(props);
+      this.state = {
+   			TEXT: 'Input Text',//这里放你自己定义的state变量及初始值
+      };
+
   }
 
   //在这里判断是否第一次进来，是则展示 Intro
   componentDidMount() {
+		console.log("componentDidMount!");
+		//获取intent extra传来的数据
+		NativeModules.MyIntentModule.getDataFromIntent(
+				 (successMsg) =>{
+					 console.log("js getDataFromIntent");
+
+					 console.log("successMsg" + successMsg);
+				 this.setState({TEXT: successMsg,}); //状态改变的话重新绘制界面
+					},
+					(erroMsg) => {alert(erroMsg)}
+		 );
+
+		 
+		setTimeout(function(){
+			console.log("setTimeout!");
+
+		},5000);
+
       codePush.checkForUpdate()
           .then((update) => {
               if (!update) {
@@ -32,8 +58,14 @@ class zxtRn extends Component {
                   codePush.sync();
               }
           });
-  }
 
+
+  }
+  componentUnDidMount() {
+		console.log("componentUnDidMount");
+
+		NativeModules.MyIntentModule.finishActivity(this.state.TEXT);
+	}
 
   render() {
     return (
@@ -52,6 +84,11 @@ class zxtRn extends Component {
         <Text style={styles.codepush}>
           code push test
         </Text>
+        <TextInput
+                style={{height: 40, borderColor: 'gray', borderWidth: 1,margin:20,}}
+                onChangeText={(text) => this.setState({text})}
+                value={this.state.TEXT} />
+
         <Text style={styles.button} onPress={() => this.sendSMS()} >
           Send SMS
         </Text>
@@ -61,12 +98,14 @@ class zxtRn extends Component {
   }
 
   sendSMS(){
+		ToastAndroid.show("sendSMS!",ToastAndroid.SHORT);
     SendIntentAndroid.sendText({
       title: 'Please share this text',
       text: 'Lorem ipsum dolor sit amet, per error erant eu, antiopam intellegebat ne sed',
       type: SendIntentAndroid.TEXT_PLAIN
     });
   }
+
 }
 
 const styles = StyleSheet.create({

@@ -5,6 +5,7 @@ import com.burnweb.rnsendintent.RNSendIntentPackage;
 import com.microsoft.codepush.react.CodePush;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
+import com.zxtrn.myintent.MyReactPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -47,7 +48,8 @@ public class MainActivity extends ReactActivity {
         return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
             new RNSendIntentPackage(),
-            this._codePush
+                new MyReactPackage(),
+        this._codePush
             //new CodePush(this.getResources().getString(R.strings.reactNativeCodePush_androidDeploymentKey), this, BuildConfig.DEBUG)
         );
     }

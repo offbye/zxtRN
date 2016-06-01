@@ -33,7 +33,7 @@ public class MyActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(getApplicationContext(), MainActivity.class);
-                intent.putExtra("hello","hello react");
+                intent.putExtra("result","hello react");
                 startActivity(intent);
             }
         });
