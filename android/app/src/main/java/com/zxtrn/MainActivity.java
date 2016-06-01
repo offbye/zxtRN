@@ -1,6 +1,7 @@
 package com.zxtrn;
 
 import com.facebook.react.ReactActivity;
+import com.burnweb.rnsendintent.RNSendIntentPackage;
 import com.microsoft.codepush.react.CodePush;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -45,6 +46,7 @@ public class MainActivity extends ReactActivity {
 
         return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
+            new RNSendIntentPackage(),
             this._codePush
             //new CodePush(this.getResources().getString(R.strings.reactNativeCodePush_androidDeploymentKey), this, BuildConfig.DEBUG)
         );

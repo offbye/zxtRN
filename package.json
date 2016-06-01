@@ -8,6 +8,7 @@
   "dependencies": {
     "react": "^15.0.2",
     "react-native": "^0.26.0",
-    "react-native-code-push": "^1.11.0-beta"
+    "react-native-code-push": "^1.11.0-beta",
+    "react-native-send-intent": "^1.0.10"
   }
 }
