@@ -25,6 +25,10 @@
 		6A0AD7761CFEEB7E006BB11B /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0AD7751CFEEB7E006BB11B /* Test.swift */; };
 		6A0AD7781CFEEBDA006BB11B /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0AD7771CFEEBDA006BB11B /* CalendarManager.swift */; };
 		6A0AD77C1CFEED36006BB11B /* CalendarManagerBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0AD77B1CFEED36006BB11B /* CalendarManagerBridge.m */; };
+		6A0AD77E1D0010CB006BB11B /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A0AD77D1D0010CB006BB11B /* Test.storyboard */; };
+		6A0AD7811D001401006BB11B /* ReactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0AD7801D001401006BB11B /* ReactViewController.m */; };
+		6A0AD7831D0015DA006BB11B /* Page1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0AD7821D0015DA006BB11B /* Page1ViewController.swift */; };
+		6A0AD7851D0015E9006BB11B /* Page2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0AD7841D0015E9006BB11B /* Page2ViewController.swift */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		CA58C0DA96BB46B2BB4EB402 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D220BF1A1FD4297B3CC492C /* libCodePush.a */; };
 /* End PBXBuildFile section */
@@ -143,6 +147,11 @@
 		6A0AD7751CFEEB7E006BB11B /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		6A0AD7771CFEEBDA006BB11B /* CalendarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		6A0AD77B1CFEED36006BB11B /* CalendarManagerBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarManagerBridge.m; sourceTree = "<group>"; };
+		6A0AD77D1D0010CB006BB11B /* Test.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
+		6A0AD77F1D001401006BB11B /* ReactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactViewController.h; sourceTree = "<group>"; };
+		6A0AD7801D001401006BB11B /* ReactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactViewController.m; sourceTree = "<group>"; };
+		6A0AD7821D0015DA006BB11B /* Page1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page1ViewController.swift; sourceTree = "<group>"; };
+		6A0AD7841D0015E9006BB11B /* Page2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page2ViewController.swift; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -253,6 +262,8 @@
 		13B07FAE1A68108700A75B9A /* zxtRn */ = {
 			isa = PBXGroup;
 			children = (
+				6A0AD7821D0015DA006BB11B /* Page1ViewController.swift */,
+				6A0AD7841D0015E9006BB11B /* Page2ViewController.swift */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -264,6 +275,9 @@
 				6A0AD7741CFEEB7D006BB11B /* zxtRn-Bridging-Header.h */,
 				6A0AD7771CFEEBDA006BB11B /* CalendarManager.swift */,
 				6A0AD77B1CFEED36006BB11B /* CalendarManagerBridge.m */,
+				6A0AD77D1D0010CB006BB11B /* Test.storyboard */,
+				6A0AD77F1D001401006BB11B /* ReactViewController.h */,
+				6A0AD7801D001401006BB11B /* ReactViewController.m */,
 			);
 			name = zxtRn;
 			sourceTree = "<group>";
@@ -555,6 +569,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A0AD77E1D0010CB006BB11B /* Test.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
@@ -594,8 +609,11 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				6A0AD77C1CFEED36006BB11B /* CalendarManagerBridge.m in Sources */,
+				6A0AD7851D0015E9006BB11B /* Page2ViewController.swift in Sources */,
 				6A0AD7781CFEEBDA006BB11B /* CalendarManager.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				6A0AD7831D0015DA006BB11B /* Page1ViewController.swift in Sources */,
+				6A0AD7811D001401006BB11B /* ReactViewController.m in Sources */,
 				6A0AD7761CFEEB7E006BB11B /* Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

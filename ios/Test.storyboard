@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IVR-iB-3po">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Page1-->
+        <scene sceneID="NFE-0a-rcj">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VQJ-1a-TCE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="page1" title="Page1" id="BFr-KT-xFz" customClass="Page1ViewController" customModule="zxtRn" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J0j-7o-RVs"/>
+                        <viewControllerLayoutGuide type="bottom" id="geM-2c-2TO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zP6-cf-jHw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssl-cF-FfH">
+                                <rect key="frame" x="270" y="116" width="61" height="30"/>
+                                <state key="normal" title="Enter RN"/>
+                                <connections>
+                                    <action selector="enterRN:" destination="BFr-KT-xFz" eventType="touchUpInside" id="kRc-19-S94"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5j-vI-W2R">
+                                <rect key="frame" x="258" y="169" width="84" height="30"/>
+                                <state key="normal" title="Enter Page2"/>
+                                <connections>
+                                    <segue destination="gEZ-LJ-anP" kind="show" id="iAv-ng-B1A"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzM-vg-mxw">
+                                <rect key="frame" x="285" y="225" width="30" height="30"/>
+                                <state key="normal" title="Exit"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ssl-cF-FfH" firstAttribute="centerX" secondItem="zP6-cf-jHw" secondAttribute="centerX" id="DCP-XH-E5Y"/>
+                            <constraint firstItem="ssl-cF-FfH" firstAttribute="top" secondItem="J0j-7o-RVs" secondAttribute="bottom" constant="52" id="O9h-Q7-0fa"/>
+                            <constraint firstItem="bzM-vg-mxw" firstAttribute="top" secondItem="K5j-vI-W2R" secondAttribute="bottom" constant="26" id="YvV-2Z-6qZ"/>
+                            <constraint firstItem="ssl-cF-FfH" firstAttribute="centerX" secondItem="bzM-vg-mxw" secondAttribute="centerX" id="ieg-8Y-MgG"/>
+                            <constraint firstItem="K5j-vI-W2R" firstAttribute="top" secondItem="ssl-cF-FfH" secondAttribute="bottom" constant="23" id="sEP-3q-jmJ"/>
+                            <constraint firstItem="ssl-cF-FfH" firstAttribute="centerX" secondItem="K5j-vI-W2R" secondAttribute="centerX" id="zZh-s3-ZfA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="H3e-He-gQH"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1117" y="290"/>
+        </scene>
+        <!--Test Page2-->
+        <scene sceneID="xDl-Sg-8Bi">
+            <objects>
+                <viewController storyboardIdentifier="page2" title="Test Page2" id="gEZ-LJ-anP" customClass="Page2ViewController" customModule="zxtRn" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QSe-zD-OTa"/>
+                        <viewControllerLayoutGuide type="bottom" id="HX0-2i-ToC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="x9U-vG-RXE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="receive data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQy-eY-P6K">
+                                <rect key="frame" x="190" y="114" width="220" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J07-ob-eWj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1808" y="290"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="74M-PT-PMP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IVR-iB-3po" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="u8O-oF-WbM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BFr-KT-xFz" kind="relationship" relationship="rootViewController" id="LaT-55-kHf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VIJ-Fh-ZrY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="290"/>
+        </scene>
+    </scenes>
+</document>
