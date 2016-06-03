@@ -18,8 +18,26 @@ class CalendarManager: NSObject {
     
   }
   
-  @objc func pushView(storyboadName: String, storyboadId: String, data : String) -> Void {
-    print("pushView  \(storyboadName), \(storyboadId), \(data)");
-//    IBHelper.presentViewController(self, storyBoard: StoryboardNames.Test, controller: VCStoryboardIdentifier.Page2ViewController)
+  @objc func pushView(storyBoard: String, controller: String, data : String, callback: RCTResponseSenderBlock) -> Void {
+    print("pushView  \(storyBoard), \(controller), \(data)")
+    IBHelper.pushStoryBoard(UIApplication.sharedApplication().keyWindow?.rootViewController as? UINavigationController, storyBoard: storyBoard, controller: controller, param: data)
   }
+ 
+  @objc func pushPage2(storyBoard: String, controller: String, data : String, callback: RCTResponseSenderBlock) -> Void {
+    print("pushView  \(storyBoard), \(controller), \(data)");
+    
+    let storyBoard = UIStoryboard(name: storyBoard, bundle: nil)
+    let controller = storyBoard.instantiateViewControllerWithIdentifier(controller) as! Page2ViewController
+    controller.data = data
+    controller.hidesBottomBarWhenPushed = true
+    controller.callback = callback
+    if let navi = UIApplication.sharedApplication().keyWindow?.rootViewController as? UINavigationController {
+      navi.pushViewController(controller, animated: true)
+    }
+
+  
+  }
+  
+  
+  
 }

@@ -20,6 +20,8 @@
 RCT_EXTERN_METHOD(addEvent:(NSString *)name location:(NSString *)location date:nonnull (NSNumber *)date)
 RCT_EXTERN_METHOD(pushView:(NSString *)storyboadName storyboadId:(NSString *)storyboadId data: (NSString *)data)
 
+RCT_EXTERN_METHOD(pushPage2:(NSString *)storyBoard controller:(NSString *)controller data: (NSString *)data callback: (RCTResponseSenderBlock *)callback)
+
 static CalendarManager *_instance = nil;
 +(instancetype)sharedInstance
 {
@@ -44,22 +46,6 @@ static CalendarManager *_instance = nil;
   return dispatch_get_main_queue();
 }
 
-RCT_EXPORT_METHOD(startPage2:(NSString *)name location:(NSString *)location)
-{
-  NSLog(@"name %@ location %@", name, location);
-  UINavigationController *controller = (UINavigationController*)[[[UIApplication sharedApplication] keyWindow] rootViewController];
-
-  UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Test" bundle:nil];
-  UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"page2"];
-  vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-  [controller pushViewController:vc animated:YES];
-//  [self.navigationController presentViewController: vc animated:YES completion:nil];
-
-  
-//  Page2ViewController *TestVC = [[Page2ViewController alloc] init];
-//  [self.navigationController pushViewController:TestVC animated:YES];
-  
-}
 
 
 RCT_EXPORT_METHOD(pushNative:(NSString *)storyName controllerId:(NSString *)controllerId params:(NSDictionary *)json)
@@ -81,5 +67,14 @@ RCT_EXPORT_METHOD(pushNative:(NSString *)storyName controllerId:(NSString *)cont
   });
 }
 
+
+RCT_EXPORT_METHOD(findEvents:(RCTResponseSenderBlock)callback)
+{
+  NSArray *events = [NSArray init ];
+  [events arrayByAddingObject: @"aaaa"];
+  [events arrayByAddingObject: @"bbbb"];
+
+  callback(@[[NSNull null], events]);
+}
 
 @end

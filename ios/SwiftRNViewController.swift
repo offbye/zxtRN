@@ -20,8 +20,14 @@ class SwiftRNViewController: UIViewController {
                                initialProperties:nil,
                                launchOptions:nil)
     rootView.frame = UIScreen.mainScreen().bounds
-    
     self.view = rootView
+
+//    let myFrame = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: 100)
+//    let myView = UIView(frame: myFrame)
+//    myView.backgroundColor = UIColor.blueColor()
+//    self.view.addSubview(myView)
+//    rootView.frame = CGRect(x: 0, y: 100, width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height - 100)
+//    self.view.addSubview(rootView)
     
   }
 

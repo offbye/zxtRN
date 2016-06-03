@@ -39,6 +39,8 @@ rnpm-install info Module react-native-send-intent has been successfully installe
 
 ## Android原生Activity与RN互传数据-MyIntentModule实现
 
+[官方文档Integrating with Existing Apps](http://facebook.github.io/react-native/releases/0.26/docs/embedded-app-android.html#content)过时没有更新,只能参考一下，代码不正确。
+
 ###原生界面调用React界面
 
 1.只是启动React界面的话很简单，同原生界面间的启动一样，直接用startActivity即可。
@@ -261,12 +263,16 @@ CodePush的具体配置可以参考[这篇文章](http://bbs.reactnative.cn/topi
 
 ## iOS集成
 
-首先仔细看看下面的文章
-http://reactnative.cn/docs/0.26/native-modules-ios.html#content
-http://www.jianshu.com/p/c595ef2d4a35
-https://github.com/facebook/react-native/issues/1148
+实现了从Swift原生页面和React页面的互相跳转
+Swift和OC版本的RN容器页面
+用Swift开发RN模块的例子
+
 
 
 参考文章
+* http://reactnative.cn/docs/0.26/native-modules-ios.html#content
+* http://www.jianshu.com/p/c595ef2d4a35
+* https://github.com/facebook/react-native/issues/1148
+* http://www.nihaoshijie.com.cn/index.php/archives/560
 * https://js.coach/react-native/
 * https://github.com/ipk2015/RN-Resource-ipk/tree/master/react-native-docs

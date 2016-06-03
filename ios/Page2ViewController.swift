@@ -10,12 +10,17 @@ import UIKit
 
 class Page2ViewController: UIViewController {
 
+  var data:String?
+  var callback : RCTResponseSenderBlock?
   @IBOutlet weak var inputText: UITextField!
   
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+      if let data = data {
+        inputText.text =  data
+      }
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,6 +29,14 @@ class Page2ViewController: UIViewController {
     }
     
   @IBAction func submit(sender: AnyObject) {
+    print("submit ")
+    if let callback = callback {
+      print("callback ")
+
+      callback(["",inputText.text!])
+    }
+    self.navigationController?.popViewControllerAnimated(true)
+
   }
 
   @IBAction func exit(sender: AnyObject) {
