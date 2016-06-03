@@ -64,12 +64,19 @@ RCT_EXPORT_METHOD(startPage2:(NSString *)name location:(NSString *)location)
 
 RCT_EXPORT_METHOD(pushNative:(NSString *)storyName controllerId:(NSString *)controllerId params:(NSDictionary *)json)
 {
+  NSLog(@"pushNative storyName %@ controllerId %@", storyName, controllerId);
+
   dispatch_async(dispatch_get_main_queue(), ^{
     UIStoryboard *secondStoryBoard = [UIStoryboard storyboardWithName:storyName bundle:nil];
     UIViewController *suitViewControllers = [secondStoryBoard instantiateViewControllerWithIdentifier:controllerId];
     [suitViewControllers setHidesBottomBarWhenPushed:YES];
 //    [self setproperties:suitViewControllers andParams:json];
-    [[UIApplication sharedApplication].keyWindow.rootViewController.navigationController pushViewController:suitViewControllers animated:YES];
+    [(UINavigationController *)([UIApplication sharedApplication].keyWindow.rootViewController)  pushViewController:suitViewControllers animated:YES];
+    
+//    UIViewController *root = [[[[UIApplication sharedApplication] delegate]
+//                               window] rootViewController];
+//    [root presentViewController:suitViewControllers animated:YES completion:NULL];
+    
     
   });
 }
