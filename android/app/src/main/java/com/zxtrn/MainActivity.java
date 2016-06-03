@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 
 import com.facebook.react.ReactActivity;
-import com.reactnativenavigation.RnnPackage;
+//import com.reactnativenavigation.RnnPackage;
 import com.burnweb.rnsendintent.RNSendIntentPackage;
 import com.microsoft.codepush.react.CodePush;
 import com.facebook.react.ReactPackage;
@@ -52,7 +52,7 @@ public class MainActivity extends ReactActivity {
 
         return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
-            new RnnPackage(),
+//            new RnnPackage(),
             new RNSendIntentPackage(),
                 new MyReactPackage(),
         this._codePush

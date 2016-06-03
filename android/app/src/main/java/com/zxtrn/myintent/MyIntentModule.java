@@ -70,12 +70,13 @@ class MyIntentModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void startActivityForResult(String activityName,int requestCode,Callback successCallback,Callback erroCallback){
+    public void startActivityForResult(String activityName, String data, int requestCode,Callback successCallback,Callback erroCallback){
         try {
             Activity currentActivity = getCurrentActivity();
             if ( null!= currentActivity) {
                 Class aimActivity = Class.forName(activityName);
                 Intent intent = new Intent(currentActivity,aimActivity);
+                intent.putExtra("result", data);
                 currentActivity.startActivityForResult(intent,requestCode);
                 String result = MyConstants.myBlockingQueue.take();
                 successCallback.invoke(result);

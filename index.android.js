@@ -33,17 +33,19 @@ class zxtRn extends Component {
   //在这里判断是否第一次进来，是则展示 Intro
   componentDidMount() {
 		console.log("componentDidMount!");
-		//获取intent extra传来的数据
-		NativeModules.MyIntentModule.getDataFromIntent(
-				 (successMsg) =>{
-					 console.log("js getDataFromIntent");
+    if (Platform.OS === "android"){
+      //获取intent extra传来的数据
+      NativeModules.MyIntentModule.getDataFromIntent(
+           (successMsg) =>{
+             console.log("js getDataFromIntent");
 
-					 console.log("successMsg" + successMsg);
-				 this.setState({TEXT: successMsg,}); //状态改变的话重新绘制界面
-					},
-					(erroMsg) => {alert(erroMsg)}
-		 );
+             console.log("successMsg" + successMsg);
+           this.setState({TEXT: successMsg,}); //状态改变的话重新绘制界面
+            },
+            (erroMsg) => {alert(erroMsg)}
+       );
 
+    }
 
 		setTimeout(function(){
 			console.log("setTimeout!");
@@ -115,7 +117,7 @@ class zxtRn extends Component {
 
 	startActivityForResult(){
 		NativeModules.MyIntentModule.startActivityForResult(
-					"com.zxtrn.SecondActivity",100,
+					"com.zxtrn.SecondActivity", this.state.TEXT , 100,
 					(successMsg) => {
 								this.setState({TEXT: successMsg, });
 					},
