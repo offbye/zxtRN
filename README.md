@@ -261,7 +261,7 @@ CodePush的具体配置可以参考[这篇文章](http://bbs.reactnative.cn/topi
 
 ## iOS集成
 
-首先看看下面的文章
+首先仔细看看下面的文章
 http://reactnative.cn/docs/0.26/native-modules-ios.html#content
 http://www.jianshu.com/p/c595ef2d4a35
 https://github.com/facebook/react-native/issues/1148
