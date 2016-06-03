@@ -10,6 +10,8 @@ import UIKit
 
 class Page2ViewController: UIViewController {
 
+  @IBOutlet weak var inputText: UITextField!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +23,12 @@ class Page2ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+  @IBAction func submit(sender: AnyObject) {
+  }
 
+  @IBAction func exit(sender: AnyObject) {
+    self.navigationController?.popViewControllerAnimated(true)
+  }
     /*
     // MARK: - Navigation
 

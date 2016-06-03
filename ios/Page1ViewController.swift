@@ -24,6 +24,10 @@ class Page1ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+  @IBAction func enterSwiftRN(sender: AnyObject) {
+    self.navigationController?.pushViewController(SwiftRNViewController(), animated: true)
+
+  }
 
     /*
     // MARK: - Navigation

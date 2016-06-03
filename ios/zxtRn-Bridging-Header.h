@@ -6,3 +6,4 @@
 // CalendarManager-Bridging-Header.h
 #import "RCTBridgeModule.h"
 #import "ReactViewController.h"
+#import "RCTRootView.h"

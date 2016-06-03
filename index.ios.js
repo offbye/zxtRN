@@ -27,10 +27,11 @@ class zxtRn extends Component {
           Press Cmd+R to reload,{'\n'}
           Cmd+D or shake for dev menu
         </Text>
-        <Text style={styles.instructions} onPress={() => { NativeModules.CalendarManager.addEvent('One', 'Two', 3); } } >
+        <View style={{height: 40, }} />
+        <Text style={styles.button} onPress={() => { NativeModules.CalendarManager.addEvent('One', 'Two', 3); } } >
            Call Swift Module
         </Text>
-        <Text style={styles.instructions} onPress={() => { NativeModules.CalendarManager.pushNative('Test', 'page2',{}); } } >
+        <Text style={styles.button} onPress={() => { NativeModules.CalendarManager.pushNative('Test', 'page2',{}); } } >
           Enter Swift Page2
         </Text>
       </View>
@@ -55,6 +56,15 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  button: {
+    textAlign: 'center',
+    color: 'teal',
+    fontSize: 24,
+    margin: 5,
+    padding: 5,
+    borderWidth:1, //安卓Text好像还不支持边框，需要View嵌套，坑
+    borderColor:'blue',
+   },
 });
 
 AppRegistry.registerComponent('zxtRn', () => zxtRn);

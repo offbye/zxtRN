@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Page1-->
@@ -33,8 +34,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzM-vg-mxw">
-                                <rect key="frame" x="285" y="225" width="30" height="30"/>
-                                <state key="normal" title="Exit"/>
+                                <rect key="frame" x="250" y="225" width="100" height="30"/>
+                                <state key="normal" title="Enter Swift RN"/>
+                                <connections>
+                                    <action selector="enterSwiftRN:" destination="BFr-KT-xFz" eventType="touchUpInside" id="d1p-mw-KOQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -64,15 +68,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="receive data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQy-eY-P6K">
-                                <rect key="frame" x="190" y="114" width="220" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="receive data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQy-eY-P6K">
+                                <rect key="frame" x="253" y="211" width="93.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyk-6z-app">
+                                <rect key="frame" x="285.5" y="403" width="30" height="30"/>
+                                <state key="normal" title="Exit"/>
+                                <connections>
+                                    <action selector="exit:" destination="gEZ-LJ-anP" eventType="touchUpInside" id="sx4-9f-T6m"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v1T-f6-ZQj">
+                                <rect key="frame" x="30" y="285" width="540" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdT-2n-FnE">
+                                <rect key="frame" x="275" y="356" width="49" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submit:" destination="gEZ-LJ-anP" eventType="touchUpInside" id="GrE-0f-oQB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hdT-2n-FnE" firstAttribute="centerX" secondItem="x9U-vG-RXE" secondAttribute="centerX" id="55m-tf-DJd"/>
+                            <constraint firstItem="hdT-2n-FnE" firstAttribute="centerX" secondItem="KQy-eY-P6K" secondAttribute="centerX" id="8Kh-bI-FLW"/>
+                            <constraint firstItem="v1T-f6-ZQj" firstAttribute="leading" secondItem="x9U-vG-RXE" secondAttribute="leadingMargin" constant="10" id="CYz-Om-dGc"/>
+                            <constraint firstItem="hdT-2n-FnE" firstAttribute="top" secondItem="v1T-f6-ZQj" secondAttribute="bottom" constant="41" id="O1O-kN-thf"/>
+                            <constraint firstAttribute="bottom" secondItem="hdT-2n-FnE" secondAttribute="bottom" constant="214" id="P82-nP-xzH"/>
+                            <constraint firstItem="hyk-6z-app" firstAttribute="top" secondItem="hdT-2n-FnE" secondAttribute="bottom" constant="17" id="UZh-hh-U4i"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="v1T-f6-ZQj" secondAttribute="trailing" constant="10" id="gjk-Pa-nuD"/>
+                            <constraint firstItem="hyk-6z-app" firstAttribute="centerX" secondItem="x9U-vG-RXE" secondAttribute="centerX" id="lp4-hR-L0Q"/>
+                            <constraint firstItem="v1T-f6-ZQj" firstAttribute="top" secondItem="KQy-eY-P6K" secondAttribute="bottom" constant="53" id="miN-QZ-0nA"/>
+                            <constraint firstItem="v1T-f6-ZQj" firstAttribute="centerY" secondItem="x9U-vG-RXE" secondAttribute="centerY" id="mnP-LV-Qg3"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="inputText" destination="v1T-f6-ZQj" id="VjJ-w4-rNE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J07-ob-eWj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
