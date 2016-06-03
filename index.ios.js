@@ -27,6 +27,12 @@ class zxtRn extends Component {
           Press Cmd+R to reload,{'\n'}
           Cmd+D or shake for dev menu
         </Text>
+        <Text style={styles.instructions} onPress={() => { NativeModules.CalendarManager.addEvent('One', 'Two', 3); } } >
+           Call Swift Module
+        </Text>
+        <Text style={styles.instructions} onPress={() => { NativeModules.CalendarManager.pushNative('Test', 'page2',{}); } } >
+          Enter Swift Page2
+        </Text>
       </View>
     );
   }

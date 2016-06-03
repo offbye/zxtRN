@@ -259,6 +259,12 @@ CodePush提供了对React Native App的热更新能力，目前只能对js bundl
 CodePush的一个问题是是对React Native版本的兼容性，由于React Native版本更新很快，CodePush是由微软而不是Facebook维护的，所以对React Native0.18以前的版本支持有各种兼容问题，具体参考[文档](http://microsoft.github.io/code-push/docs/react-native.html#link-1)。
 CodePush的具体配置可以参考[这篇文章](http://bbs.reactnative.cn/topic/725/code-push-%E7%83%AD%E6%9B%B4%E6%96%B0%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E%E5%92%8C%E6%95%99%E7%A8%8B/2),配置需要注意的事项还是挺多的，我参考这篇文章配置成功了，
 
+## iOS集成
+
+首先看看下面的文章
+http://reactnative.cn/docs/0.26/native-modules-ios.html#content
+http://www.jianshu.com/p/c595ef2d4a35
+https://github.com/facebook/react-native/issues/1148
 
 
 参考文章

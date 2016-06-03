@@ -18,5 +18,8 @@ class CalendarManager: NSObject {
     
   }
   
-  
+  @objc func pushView(storyboadName: String, storyboadId: String, data : String) -> Void {
+    print("pushView  \(storyboadName), \(storyboadId), \(data)");
+//    IBHelper.presentViewController(self, storyBoard: StoryboardNames.Test, controller: VCStoryboardIdentifier.Page2ViewController)
+  }
 }

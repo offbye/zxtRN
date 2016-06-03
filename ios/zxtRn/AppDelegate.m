@@ -41,7 +41,7 @@
    * simulator in the "Release" build configuration.
    */
 
-//   jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+   //jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 
 //  RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
 //                                                      moduleName:@"zxtRn"
@@ -54,6 +54,21 @@
 //  self.window.rootViewController = rootViewController;
 //  [self.window makeKeyAndVisible];
   return YES;
+}
+
+
+- (void)goToReactNative {
+  
+  [self.window.rootViewController dismissViewControllerAnimated:TRUE completion:nil];
+  
+}
+
+- (void)goNativeStoryboard {
+  
+  UIViewController *vc = [UIStoryboard storyboardWithName:@"Test" bundle:nil].instantiateInitialViewController;
+  
+  [self.window.rootViewController presentViewController:vc animated:true completion:nil];
+  
 }
 
 @end
