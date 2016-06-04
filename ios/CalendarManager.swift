@@ -18,7 +18,7 @@ class CalendarManager: NSObject {
     
   }
   
-  @objc func pushView(storyBoard: String, controller: String, data : String, callback: RCTResponseSenderBlock) -> Void {
+  @objc func pushView(storyBoard: String, controller: String, data : String) -> Void {
     print("pushView  \(storyBoard), \(controller), \(data)")
     IBHelper.pushStoryBoard(UIApplication.sharedApplication().keyWindow?.rootViewController as? UINavigationController, storyBoard: storyBoard, controller: controller, param: data)
   }

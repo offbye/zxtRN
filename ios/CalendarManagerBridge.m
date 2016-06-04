@@ -18,7 +18,7 @@
 @interface RCT_EXTERN_MODULE(CalendarManager, NSObject)
 
 RCT_EXTERN_METHOD(addEvent:(NSString *)name location:(NSString *)location date:nonnull (NSNumber *)date)
-RCT_EXTERN_METHOD(pushView:(NSString *)storyboadName storyboadId:(NSString *)storyboadId data: (NSString *)data)
+RCT_EXTERN_METHOD(pushView:(NSString *)storyBoard controller:(NSString *)controller data: (NSString *)data)
 
 RCT_EXTERN_METHOD(pushPage2:(NSString *)storyBoard controller:(NSString *)controller data: (NSString *)data callback: (RCTResponseSenderBlock *)callback)
 
@@ -75,6 +75,21 @@ RCT_EXPORT_METHOD(findEvents:(RCTResponseSenderBlock)callback)
   [events arrayByAddingObject: @"bbbb"];
 
   callback(@[[NSNull null], events]);
+}
+
+RCT_REMAP_METHOD(findEvents2,
+                 resolver:(RCTPromiseResolveBlock)resolve
+                 rejecter:(RCTPromiseRejectBlock)reject)
+{
+  NSArray *events = [NSArray init ];
+  [events arrayByAddingObject: @"aaaa"];
+  [events arrayByAddingObject: @"bbbb"];
+  
+  if (events) {
+    resolve(events);
+  } else {
+   // reject([RCTMakeError(@"err", @"err",nil)]);
+  }
 }
 
 @end

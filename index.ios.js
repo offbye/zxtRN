@@ -54,7 +54,9 @@ class zxtRn extends Component {
         <Text style={styles.button} onPress={() => this.pushPage2() } >
            push Page2 with callback
         </Text>
-
+        <Text style={styles.button} onPress={() => this.updateEvents() } >
+          callback promise
+        </Text>
         <Text style={styles.button} onPress={() => { NativeModules.CalendarManager.pushNative('Test', 'page2',{}); } } >
           Enter Swift Page2
         </Text>
@@ -65,14 +67,27 @@ class zxtRn extends Component {
   pushPage2() {
     NativeModules.CalendarManager.pushPage2('Test', 'page2', this.state.TEXT, (error, events) => {
       if (error) {
-        console.error(error);
+        console.log("111111111");
+        console.log(error);
       } else {
-        console.error(events);
+        console.log("2222222");
+        console.log(events);
 
-        this.setState({TEXT: "events"});
+        this.setState({TEXT: events[0]});
       }
     });
   }
+  //Promise demo
+  async updateEvents() {
+    try {
+      var events = await NativeModules.CalendarManager.findEvents2();
+
+      this.setState({ TEXT: "resolved"});
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
 }
 
 const styles = StyleSheet.create({

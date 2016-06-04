@@ -33,7 +33,7 @@ class Page2ViewController: UIViewController {
     if let callback = callback {
       print("callback ")
 
-      callback(["",inputText.text!])
+      callback([NSNull(), [inputText.text!]])
     }
     self.navigationController?.popViewControllerAnimated(true)
 
