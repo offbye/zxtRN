@@ -2,6 +2,7 @@
 
 ## 项目介绍
 React Native和Android，iOS原生项目集成，完全实现了RN和原生页面的互相跳转和数据传递，为后面混合项目开发和集成做好了技术准备。
+
 Android实现了Android原生页面和React界面互相跳转和数据的双向传递; 集成了CodePush实时推送; 集成react-native-send-intent模块实现从React页面发起Intent发短信，打电话，添加日历事件等常见任务。通过rnpm集成了CodePush， react-native-send-intent等模块。
 
 iOS实现了从Swift原生页面和React页面的互相跳转和传值; Swift和OC版本的RN容器页面
@@ -265,9 +266,9 @@ CodePush的具体配置可以参考[这篇文章](http://bbs.reactnative.cn/topi
 
 ## iOS集成
 
-实现了从Swift原生页面和React页面的互相跳转和传值
-Swift和OC版本的RN容器页面
-用Swift开发RN模块的例子
+* 实现了从Swift原生页面和React页面的互相跳转和传值
+* Swift和OC版本的RN容器页面
+* 用Swift开发RN模块的例子
 
 注意点：
 * RN版本更新快，官网文档更新不及时，API接口不稳定，网上查到的文章也可能过时，以代码为准
