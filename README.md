@@ -1,11 +1,13 @@
 # React Native和Android，iOS原生项目集成实验项目
 
 ## 项目介绍
+React Native和Android，iOS原生项目集成，完全实现了RN和原生页面的互相跳转和数据传递，为后面混合项目开发和集成做好了技术准备。
+Android实现了Android原生页面和React界面互相跳转和数据的双向传递; 集成了CodePush实时推送; 集成react-native-send-intent模块实现从React页面发起Intent发短信，打电话，添加日历事件等常见任务。通过rnpm集成了CodePush， react-native-send-intent等模块。
 
-通过rnpm集成了CodePush， react-native-send-intent模块。
-react-native-send-intent模块实现从React页面发起Intent发短信，打电话，添加日历事件等常见任务。进行简单扩展后可以支持启动任意原生Activity。
-自己实现MyIntentModule模块通过Intent从MyAndroid传输数据到React界面。
-http://git.dev.qianmi.com/elifeapp/zxtrn
+iOS实现了从Swift原生页面和React页面的互相跳转和传值; Swift和OC版本的RN容器页面
+
+### 项目git地址
+>  http://git.dev.qianmi.com/elifeapp/zxtrn
 
 ![emulator rn运行效果](http://o79096vir.bkt.clouddn.com/d2dcdf812d7af45783e302fcc25cbf40.png)
 
@@ -263,13 +265,19 @@ CodePush的具体配置可以参考[这篇文章](http://bbs.reactnative.cn/topi
 
 ## iOS集成
 
-实现了从Swift原生页面和React页面的互相跳转
+实现了从Swift原生页面和React页面的互相跳转和传值
 Swift和OC版本的RN容器页面
 用Swift开发RN模块的例子
 
+注意点：
+* RN版本更新快，官网文档更新不及时，API接口不稳定，网上查到的文章也可能过时，以代码为准
+* 注意多线程问题，oc是多线程(GCD)的,在执行javascript时是在javascript的线程中进行的，所以在写接口时，如果需要调用非javascript线程的逻辑，就需要在主线程进行，即在业务代码前使用gcd获取到主线程
+* 在自定义接口时，我们在oc端定义的方法时，如果有参数，那么js端一定要传这个参数，如果没有定义参数，js端也不能传参数，这可能和js以往的语法不太一样，必须严格按照定义方法时的格式来传递。
+* 如果用Swift开发RN模块，需要在工程的桥接文件XXXX-Bridging-Header.h import用的RN头文件；用@objc声明要暴露给RN的函数，在XXXBridge.m 用RCT_EXTERN_METHOD声明，参数名和类型必须完全一致。
+* 为了和Android一致，有些函数参数需要用nonnull声明
 
 
-参考文章
+## 参考文章
 * http://reactnative.cn/docs/0.26/native-modules-ios.html#content
 * http://www.jianshu.com/p/c595ef2d4a35
 * https://github.com/facebook/react-native/issues/1148
