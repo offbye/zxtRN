@@ -77,14 +77,17 @@ class zxtRn extends Component {
       }
     });
   }
-  //Promise demo
-  async updateEvents() {
-    try {
-      var events = await NativeModules.CalendarManager.findEvents2();
 
-      this.setState({ TEXT: "resolved"});
-    } catch (e) {
-      console.log(e);
+
+//获取Promise对象处理
+  async updateEvents(){
+    try{
+        var events=await NativeModules.CalendarManager.RNInvokeOCPromise({'name':'jiangqq'});
+        console.log(events);
+        this.setState({TEXT: events});
+    }catch(e){
+        this.setState({TEXT: e.message});
+        console.log(e.message);
     }
   }
 

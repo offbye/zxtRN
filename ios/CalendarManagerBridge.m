@@ -77,18 +77,16 @@ RCT_EXPORT_METHOD(findEvents:(RCTResponseSenderBlock)callback)
   callback(@[[NSNull null], events]);
 }
 
-RCT_REMAP_METHOD(findEvents2,
-                 resolver:(RCTPromiseResolveBlock)resolve
-                 rejecter:(RCTPromiseRejectBlock)reject)
-{
-  NSArray *events = [NSArray init ];
-  [events arrayByAddingObject: @"aaaa"];
-  [events arrayByAddingObject: @"bbbb"];
-  
-  if (events) {
-    resolve(events);
-  } else {
-   // reject([RCTMakeError(@"err", @"err",nil)]);
+
+//RN传参数调用原生OC,并且返回数据给RN  通过Promise
+RCT_EXPORT_METHOD(RNInvokeOCPromise:(NSDictionary *)dictionary resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject){
+  NSLog(@"接收到RN传过来的数据为:%@",dictionary);
+  NSString *value=[dictionary objectForKey:@"name"];
+  if([value isEqualToString:@"jiangqq"]){
+    resolve(@"回调成功啦,Promise...");
+  }else{
+    NSError *error=[NSError errorWithDomain:@"传入的name不符合要求,回调失败啦,Promise..." code:100 userInfo:nil];
+    reject(@"100",@"传入的name不符合要求,回调失败啦,Promise...",error);
   }
 }
 
